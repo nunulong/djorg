@@ -1,3 +1,4 @@
+{% extends "base.html" %} {% load bootstrap4 %} {% block title %}Djorg - Bookmarks{% endblock %} {% block content %}
 <h1>Bookmarks</h1>
 {% if bookmarks %}
 <ol>
@@ -9,10 +10,4 @@
 </ol>
 {% else %}
 <p>No bookmarks available - you should add some!</p>
-{% endif %}
-
-<h2>New bookmark</h2>
-<form method="POST" class="bookmark-form">
-  {% csrf_token %} {{ form.as_p }}
-  <button type="submit" class="save btn btn-default">Save</button>
-</form>
+{% endif %} {% include "bookmarks/form.html" %} {% endblock %}
