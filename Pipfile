@@ -11,6 +11,7 @@ gunicorn = "*"
 dj-database-url = "*"
 python-decouple = "*"
 whitenoise = "*"
+djangorestframework = "*"
 
 [dev-packages]
 pylint = "*"

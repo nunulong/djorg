@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'bookmarks',  # bookmarks app
+    'notes'
 ]
 
 MIDDLEWARE = [
@@ -79,8 +80,16 @@ WSGI_APPLICATION = 'djorg.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=config('DATABASE_URL')),
+# }
+
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL')),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'db.sqlite3',
+    }
 }
 
 
