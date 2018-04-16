@@ -14,4 +14,4 @@ class Note(models.Model):
 
     @property
     def content_length(self):
-        return len(content)
+        return len(self.content)

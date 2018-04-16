@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'bootstrap4',
+    'rest_framework',
     'bookmarks',  # bookmarks app
     'notes'
 ]
@@ -74,6 +75,14 @@ TEMPLATES = [
     },
 ]
 
+REST_FRAMEWORK = {
+    # use django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
+
 WSGI_APPLICATION = 'djorg.wsgi.application'
 
 
@@ -88,7 +97,7 @@ WSGI_APPLICATION = 'djorg.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
