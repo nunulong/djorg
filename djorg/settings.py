@@ -40,9 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 3rd party app
     'bootstrap4',
+    'graphene_django',
     'rest_framework',
-    'bookmarks',  # bookmarks app
+    # our apps
+    'bookmarks',
     'notes'
 ]
 
@@ -81,6 +84,10 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ]
+}
+
+GRAPHENE = {
+    'SCHEMA': 'notes.schema.schema'
 }
 
 WSGI_APPLICATION = 'djorg.wsgi.application'
