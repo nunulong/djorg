@@ -32,21 +32,28 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=lambda v: [
 CORS_ORIGIN_WHITELIST = config('ALLOWED_CLIENTS', cast=lambda v: [
     s.strip() for s in v.split(',')])
 
+SITE_ID = 1
+
 
 # Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     # 3rd party app
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github',
     'bootstrap4',
+    'corsheaders',
     'graphene_django',
     'rest_framework',
-    'corsheaders',
     # our apps
     'bookmarks',
     'notes'
@@ -123,6 +130,13 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 
 
 # Internationalization
