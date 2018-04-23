@@ -33,6 +33,7 @@ CORS_ORIGIN_WHITELIST = config('ALLOWED_CLIENTS', cast=lambda v: [
     s.strip() for s in v.split(',')])
 
 SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
 
 
 # Application definition
