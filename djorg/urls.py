@@ -24,7 +24,7 @@ router = routers.DefaultRouter()
 router.register(r'notes', NoteViewSet)
 
 urlpatterns = [
-    path('', TemplateView.as_view(template_name='base.html')),
+    path('', TemplateView.as_view(template_name='djorg_base.html')),
     path('accounts/', include('allauth.urls')),
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
