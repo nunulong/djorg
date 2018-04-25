@@ -57,7 +57,8 @@ INSTALLED_APPS = [
     'rest_framework',
     # our apps
     'bookmarks',
-    'notes'
+    'notes',
+    'todos',
 ]
 
 MIDDLEWARE = [
