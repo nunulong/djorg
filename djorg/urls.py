@@ -19,9 +19,11 @@ from django.views.generic import TemplateView
 from rest_framework import routers
 from notes.api import NoteViewSet
 from graphene_django.views import GraphQLView
+from todos.api import TodoViewSet
 
 router = routers.DefaultRouter()
 router.register(r'notes', NoteViewSet)
+router.register(r'todos', TodoViewSet)
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='djorg_base.html')),
