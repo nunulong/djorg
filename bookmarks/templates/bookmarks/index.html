@@ -9,8 +9,9 @@
       <span class="text-muted">Your Bookmarks</span>
       <span class="badge badge-secondary badge-pill"></span>
     </h4>
+    {% if bookmarks %}
     <ul class="list-group mb-3">
-      {% if bookmarks %} {% for bookmark in bookmarks %}
+      {% for bookmark in bookmarks %}
       <li class="list-group-item d-flex justify-content-between lh-condensed">
         <div>
           <a href="{{bookmark.url}}" target="_blank">
@@ -20,10 +21,13 @@
         </div>
 
       </li>
-      {% endfor %} {% else %}
-      <li class="list-group-item d-flex justify-content-between lh-condensed">No bookmarks available</li>
-      {% endif %}
+      {% endfor %}
     </ul>
+    {% else %}
+    <div class="alert alert-primary mb-3" role="alert">
+      No bookmark available
+    </div>
+    {% endif %}
   </div>
   {% include "bookmarks/form.html" %} {% endblock %}
 </div>>
