@@ -101,7 +101,7 @@ REST_FRAMEWORK = {
 }
 
 GRAPHENE = {
-    'SCHEMA': 'notes.schema.schema'
+    'SCHEMA': 'djorg.schema.schema'
 }
 
 WSGI_APPLICATION = 'djorg.wsgi.application'

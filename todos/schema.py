@@ -1,25 +1,25 @@
 from graphene_django import DjangoObjectType
 import graphene
-from .models import Note as NoteModel
+from .models import Todo as TodoModel
 
 
-class Note(DjangoObjectType):
+class Todo(DjangoObjectType):
     """"transform data to graphene representation"""
     class Meta:
-        model = NoteModel
+        model = TodoModel
         interfaces = (graphene.relay.Node, )
 
 
 class Query(graphene.ObjectType):
     """expose data results."""
-    notes = graphene.List(Note)
+    todos = graphene.List(Todo)
 
-    def resolve_notes(self, info):
+    def resolve_todos(self, info):
         user = info.context.user
         if user.is_anonymous:
-            return NoteModel.objects.none()
+            return TodoModel.objects.none()
         else:
-            return NoteModel.objects.filter(user=user)
+            return TodoModel.objects.filter(user=user)
 
 
 schema = graphene.Schema(query=Query)
