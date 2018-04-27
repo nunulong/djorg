@@ -2,16 +2,18 @@ from django.conf import settings
 from rest_framework import serializers, viewsets
 from .models import Todo
 
+# Serializer define the API representation
+
 
 class TodoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Todo
         fields = ('id', 'title', 'content')
 
-        def create(self, validated_data):
-            user = self._context['request'].user
-            todo = Todo.objects.create(user=user, **validated_data)
-            return todo
+    def create(self, validated_data):
+        user = self._context['request'].user
+        todo = Todo.objects.create(user=user, **validated_data)
+        return todo
 
 
 # viewsets define the view behavior
