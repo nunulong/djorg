@@ -14,11 +14,15 @@
       {% for bookmark in bookmarks %}
       <li class="list-group-item d-flex justify-content-between lh-condensed">
         <div>
-          <a href="{{bookmark.url}}" target="_blank">
-            <h6 class="my-0">{{bookmark.name}}</h6>
-          </a>
+          <h6 class="my-0">
+            <a href="{{bookmark.url}}" target="_blank">{{bookmark.name}}</a>
+          </h6>
           <small class="text-muted">{{bookmark.notes}}</small>
         </div>
+        <small class="text-muted">
+          <a href="/bookmarks/update/{{bookmark.id}}">Update</a> |
+          <a href="/bookmarks/delete/{{bookmark.id}}">Delete</a>
+        </small>
       </li>
       {% endfor %}
     </ul>
